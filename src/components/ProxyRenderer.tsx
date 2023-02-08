@@ -4,7 +4,6 @@ import { setRendererRect } from "../store/actions";
 import { IStyledProps } from "../models";
 import { getFileName } from "../utils/getFileName";
 import { useDocumentLoader } from "../hooks/useDocumentLoader";
-import { useWindowSize } from "../hooks/useWindowSize";
 import { LinkButton } from "./common";
 import { LoadingIcon } from "./icons";
 import { LoadingTimeout } from "./LoadingTimout";
@@ -13,7 +12,6 @@ import { useTranslation } from "../hooks/useTranslation";
 export const ProxyRenderer: FC<{}> = () => {
   const { state, dispatch, CurrentRenderer } = useDocumentLoader();
   const { documents, documentLoading, currentDocument, config } = state;
-  const size = useWindowSize();
   const { t } = useTranslation();
 
   const containerRef = useCallback(
@@ -21,7 +19,7 @@ export const ProxyRenderer: FC<{}> = () => {
       node && dispatch(setRendererRect(node?.getBoundingClientRect()));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [size]
+    []
   );
 
   const fileName = getFileName(
@@ -29,7 +27,7 @@ export const ProxyRenderer: FC<{}> = () => {
     config?.header?.retainURLParams || false
   );
 
-  const Contents = () => {
+  const Contents = useCallback(() => {
     if (!documents.length) {
       return <div id="no-documents"></div>;
     } else if (documentLoading) {
@@ -83,7 +81,16 @@ export const ProxyRenderer: FC<{}> = () => {
         );
       }
     }
-  };
+  }, [
+    CurrentRenderer,
+    config,
+    currentDocument,
+    documentLoading,
+    documents.length,
+    fileName,
+    state,
+    t,
+  ]);
 
   return (
     <Container
