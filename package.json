@@ -1,16 +1,16 @@
 {
-  "name": "@cyntler/react-doc-viewer",
-  "version": "1.10.3",
+  "name": "@algorima/react-doc-viewer",
+  "version": "1.10.4",
   "description": "File viewer for React.",
-  "author": "Matthew Mogford / Damian Cyntler",
+  "author": "Original author: Matthew Mogford / Damian Cyntler",
   "keywords": [
     "reactjs",
     "file-viewer"
   ],
   "license": "Apache License 2.0",
-  "homepage": "https://cyntler.github.io/react-doc-viewer",
+  "homepage": "https://github.com/algorima/react-doc-viewer",
   "repository": {
-    "url": "https://github.com/cyntler/react-doc-viewer"
+    "url": "https://github.com/algorima/react-doc-viewer"
   },
   "files": [
     "dist/**"
