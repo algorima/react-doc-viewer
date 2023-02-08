@@ -1,6 +1,6 @@
 {
   "name": "@algorima/react-doc-viewer",
-  "version": "1.10.4",
+  "version": "1.0.0",
   "description": "File viewer for React.",
   "author": "Original author: Matthew Mogford / Damian Cyntler",
   "keywords": [
@@ -20,6 +20,9 @@
   "types": "./dist/esm/index.d.ts",
   "engines": {
     "node": ">=12.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "start": "start-storybook -p 6006",
